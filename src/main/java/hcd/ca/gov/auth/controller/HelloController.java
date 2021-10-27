@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 @CrossOrigin(origins="*")
 public class HelloController {
     
@@ -37,7 +37,9 @@ public class HelloController {
     public String user(Principal principal) {
         return principal.getName();
     }
-    @RequestMapping(value = "/cars", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    
+    @RequestMapping("/cars")
+    //@RequestMapping(value = "/cars", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Car> getCars() {
         return repository.findAll();
     }
